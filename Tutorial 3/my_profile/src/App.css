@@ -4,7 +4,6 @@ body {
     font-family: Arial, sans-serif;
   }
   
-  /* Container for the entire application */
   .App {
     display: flex;
     flex-direction: column;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Form, Button, /*Alert*/} from 'react-bootstrap';
+import { Container, Row, Col, Form, Button} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import './Registration.css';
 
@@ -11,7 +11,7 @@ const Registration = () => {
     password: '',
     confirmPassword: ''
   });
-  const [/*errors,*/ setErrors] = useState({});
+  const [setErrors] = useState({});
   const navigate = useNavigate();
 
   const handleChange = (e) => {
