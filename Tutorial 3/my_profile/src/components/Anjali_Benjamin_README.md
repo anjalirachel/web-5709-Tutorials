@@ -4,8 +4,8 @@
 
 - _Date Created_: 06 June 2024
 - _Last Modification Date_: 06 June 2024
-- _Git URL_: <https://git.cs.dal.ca/abenjamin/csci-5709-assignments/-/tree/main/Assignment%201?ref_type=heads/>
-- _Netlify URL_: <https://666122cab4321a37db07d679--loquacious-youtiao-ac2058.netlify.app/>
+- _Git URL_: <https://git.cs.dal.ca/abenjamin/csci-5709-tutorials/-/tree/main/Tutorial%203?ref_type=heads>
+- _Netlify URL_: <https://66625f6ce0c9f695cb30b3e1--effulgent-khapse-1f83c8.netlify.app/>
 
 ## Authors
 
