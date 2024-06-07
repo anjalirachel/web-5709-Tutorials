@@ -15,8 +15,6 @@
 
 ## Getting Started
 
-**[Optional]** If needing to provide the marker with a copy of the project that should run on their local machine for development, testing and/or marking purposes. Please include the following sections.
-
 See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
