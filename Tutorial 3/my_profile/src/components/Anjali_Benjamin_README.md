@@ -63,6 +63,12 @@ Start the npm server to see your react app run locally
 5. Build your site.
 6. The site is deployed.
 
+## Sources Used
+
+<https://react-bootstrap.netlify.app/docs/forms/overview>
+<https://getbootstrap.com/docs/4.0/components/card/>
+<https://fonts.google.com/selection/embed>
+
 ## Built With
 
 <!--- Provide a list of the frameworks used to build this application, your list should include the name of the framework used, the url where the framework is available for download and what the framework was used for, see the example below --->
