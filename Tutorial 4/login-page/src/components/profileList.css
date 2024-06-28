@@ -1,0 +1,100 @@
+body {
+    background: rgba(127, 99, 150, 0.2);
+}
+
+.profile-listing-container {
+    border-radius: 5px;
+    /* width: 700px; */
+}
+
+.profile-listing-container h1 {
+    font-family: 'Cookie', cursive;
+    font-size: 4em;
+    color: #333;
+    margin: 0;
+}
+
+.user-list {
+    display: block;
+    border-radius: 10px;
+}
+
+.user-card {
+    width: 700px;
+    border-radius: 10px;
+    background-color: #a2749580;
+    font-family: "Merriweather", serif;
+    font-size: 15px;
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+}
+
+.user-card img {
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    padding: 5px;
+
+}
+
+.user-card h2 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 0;
+    text-align: left;
+    padding: 5px;
+}
+
+@media (max-width: 1200px) {
+    .profile-listing-container {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 700px) {
+    .user-card {
+        width: calc(100% - 20px);
+    }
+}
+
+@media (max-width: 500px) {
+    .user-card {
+        width: calc(100% - 20px);
+    }
+}
+
+
+.search-container {
+    margin-top: 50px;
+    position: relative;
+    max-width: 400px;
+    display: flex;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px;
+    font-family: 'Roboto', serif;
+    font-size: 1.2em;
+    border: 2px solid #a27495;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-input:focus {
+    border-color: #6d3e5b;
+}
+
+.search-input:focus,
+.search-input:valid {
+    transform: translateY(-100%) translateX(-10px);
+    color: #6d3e5b;
+}
