@@ -4,7 +4,7 @@
 
 - _Date Created_: 22 June 2024
 - _Last Modification Date_: 28 June 2024
-- _Git URL_: <https://git.cs.dal.ca/abenjamin/csci-5709-tutorials/-/tree/main/Tutorial%203?ref_type=heads>
+- _Git URL_: <https://git.cs.dal.ca/abenjamin/csci-5709-tutorials/-/tree/main/Tutorial%204?ref_type=heads>
 - _Netlify URL_: <https://iridescent-daifuku-5528f7.netlify.app/>
 
 ## Authors
