@@ -5,13 +5,11 @@
 - _Date Created_: 22 June 2024
 - _Last Modification Date_: 28 June 2024
 - _Git URL_: <https://git.cs.dal.ca/abenjamin/csci-5709-tutorials/-/tree/main/Tutorial%203?ref_type=heads>
-- _Netlify URL_:
+- _Netlify URL_: <https://iridescent-daifuku-5528f7.netlify.app/>
 
 ## Authors
 
 - Anjali Rachel Benjamin (an653262@dal.ca) - Owner
-
----
 
 ## Getting Started
 
@@ -74,7 +72,7 @@ Start the npm server to see your react app run locally
 
 How to implement a search functionality of users in react.js filtered by first name or last name
 
-## Answer
+## Response
 
 import React, { useState, useEffect } from 'react';
 
@@ -89,6 +87,7 @@ useEffect(() => {
 }, []);
 
 return (
+
 <div>
 <input
 type="text"
@@ -141,7 +140,4 @@ return name.includes(searchTermLower);
 
 ## Built With
 
-<!--- Provide a list of the frameworks used to build this application, your list should include the name of the framework used, the url where the framework is available for download and what the framework was used for, see the example below --->
-
 - [React.js](https://react.dev/learn/) - The web framework used
-- [Netlify]() - The deployed application
