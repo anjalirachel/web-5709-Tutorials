@@ -1,116 +1,76 @@
-const users = [];
+const express = require('express');
+const bodyParser = require('body-parser');
+const { v4: uuidv4 } = require('uuid'); // Import UUID for unique ID generation
 
-exports.handler = async (event) => {
-  const { httpMethod, path, body } = event;
-  const userId = path.split("/").pop();
+const app = express();
+const port = process.env.PORT || 3000;
 
-  switch (httpMethod) {
-    case "GET":
-      if (path === "/api/users") {
-        return {
-          statusCode: 200,
-          body: JSON.stringify({
-            message: "Users retrieved",
-            success: true,
-            users,
-          }),
-        };
-      } else if (path.startsWith("/api/user/")) {
-        const user = users.find((u) => u.id === userId);
-        if (user) {
-          return {
-            statusCode: 200,
-            body: JSON.stringify({
-              success: true,
-              user,
-            }),
-          };
-        } else {
-          return {
-            statusCode: 404,
-            body: JSON.stringify({
-              message: "User not found",
-              success: false,
-            }),
-          };
-        }
-      }
-      break;
+app.use(bodyParser.json());
 
-    case "POST":
-      if (path === "/api/add") {
-        try {
-          const { email, firstName } = JSON.parse(body);
-          if (!email || !firstName) {
-            throw new Error("Missing required fields (email, firstName)");
-          }
-          const id = Math.random().toString(36).substr(2, 9);
-          const newUser = { email, firstName, id };
-          users.push(newUser);
-          return {
-            statusCode: 201,
-            body: JSON.stringify({
-              message: "User added",
-              success: true,
-            }),
-          };
-        } catch (error) {
-          return {
-            statusCode: 400,
-            body: JSON.stringify({
-              message: error.message || "Invalid request data",
-              success: false,
-            }),
-          };
-        }
-      }
-      break;
+let users = [
+  { email: 'abc@abc.ca', firstName: 'ABC', id: '5abf6783' },
+  { email: 'xyz@xyz.ca', firstName: 'XYZ', id: '5abf674563' }
+];
 
-    case "PUT":
-      if (path.startsWith("/api/update/")) {
-        try {
-          const { email, firstName } = JSON.parse(body);
-          const userIndex = users.findIndex((u) => u.id === userId);
-          if (userIndex !== -1) {
-            if (email) users[userIndex].email = email;
-            if (firstName) users[userIndex].firstName = firstName;
-            return {
-              statusCode: 200,
-              body: JSON.stringify({
-                message: "User updated",
-                success: true,
-              }),
-            };
-          } else {
-            throw new Error("User not found");
-          }
-        } catch (error) {
-          return {
-            statusCode: 404,
-            body: JSON.stringify({
-              message: error.message || "User not found",
-              success: false,
-            }),
-          };
-        }
-      }
-      break;
+// GET all users
+app.get('/users', (req, res) => {
+  res.status(200).json({
+    message: 'Users retrieved',
+    success: true,
+    users: users
+  });
+});
 
-    default:
-      return {
-        statusCode: 405,
-        body: JSON.stringify({
-          message: "Method not allowed",
-          success: false,
-        }),
-      };
-  }
-
-  return {
-    statusCode: 400,
-    body: JSON.stringify({
-      message: "Bad request",
+// GET user by ID
+app.get('/user/:id', (req, res) => {
+  const user = users.find(u => u.id === req.params.id);
+  if (user) {
+    res.status(200).json({
+      success: true,
+      user: user
+    });
+  } else {
+    res.status(404).json({
       success: false,
-    }),
+      message: 'User not found'
+    });
+  }
+});
+
+// POST add user
+app.post('/add', (req, res) => {
+  const newUser = {
+    email: req.body.email,
+    firstName: req.body.firstName,
+    id: uuidv4() // Generate a unique ID for the new user
   };
-};
+  users.push(newUser);
+  res.status(201).json({
+    message: 'User added',
+    success: true
+  });
+});
+
+// PUT update user
+app.put('/update/:id', (req, res) => {
+  const userIndex = users.findIndex(u => u.id === req.params.id);
+  if (userIndex !== -1) {
+    users[userIndex].email = req.body.email || users[userIndex].email;
+    users[userIndex].firstName = req.body.firstName || users[userIndex].firstName;
+    res.status(200).json({
+      message: 'User updated',
+      success: true
+    });
+  } else {
+    res.status(404).json({
+      success: false,
+      message: 'User not found'
+    });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
+
+module.exports = app;
