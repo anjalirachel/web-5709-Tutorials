@@ -29,3 +29,8 @@ coverage
 
 # Yarn Integrity file
 .yarn-integrity
+
+# Netlify specific
+.netlify/
+dist/
+build/
