@@ -10,30 +10,48 @@ exports.handler = async (event) => {
   const { id } = event.queryStringParameters || {};
   const body = event.body ? JSON.parse(event.body) : {};
 
-  if (method === 'GET' && !id) {
-    return {
-      statusCode: 200,
-      body: JSON.stringify({
-        message: "Users retrieved",
-        success: true,
-        users: users
-      })
-    };
-  } else if (method === 'POST') {
-    const { email, firstName } = body;
-    const newUser = { email, firstName, id: uuidv4() };
-    users.push(newUser);
-    return {
-      statusCode: 201,
-      body: JSON.stringify({
-        message: "User added",
-        success: true
-      })
-    };
-  } else if (method === 'PUT' && id) {
-    const { email, firstName } = body;
-    const user = users.find(user => user.id === id);
-    if (user) {
+  try {
+    if (method === 'GET' && !id) {
+      return {
+        statusCode: 200,
+        body: JSON.stringify({
+          message: "Users retrieved",
+          success: true,
+          users: users
+        })
+      };
+    } else if (method === 'POST') {
+      const { email, firstName } = body;
+      if (!email || !firstName) {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({
+            message: "Email and firstName are required",
+            success: false
+          })
+        };
+      }
+      const newUser = { email, firstName, id: uuidv4() };
+      users.push(newUser);
+      return {
+        statusCode: 201,
+        body: JSON.stringify({
+          message: "User added",
+          success: true
+        })
+      };
+    } else if (method === 'PUT' && id) {
+      const { email, firstName } = body;
+      const user = users.find(user => user.id === id);
+      if (!user) {
+        return {
+          statusCode: 404,
+          body: JSON.stringify({
+            message: "User not found",
+            success: false
+          })
+        };
+      }
       if (email) user.email = email;
       if (firstName) user.firstName = firstName;
       return {
@@ -43,18 +61,17 @@ exports.handler = async (event) => {
           success: true
         })
       };
-    } else {
-      return {
-        statusCode: 404,
-        body: JSON.stringify({
-          message: "User not found",
-          success: false
-        })
-      };
-    }
-  } else if (method === 'GET' && id) {
-    const user = users.find(user => user.id === id);
-    if (user) {
+    } else if (method === 'GET' && id) {
+      const user = users.find(user => user.id === id);
+      if (!user) {
+        return {
+          statusCode: 404,
+          body: JSON.stringify({
+            message: "User not found",
+            success: false
+          })
+        };
+      }
       return {
         statusCode: 200,
         body: JSON.stringify({
@@ -64,18 +81,18 @@ exports.handler = async (event) => {
       };
     } else {
       return {
-        statusCode: 404,
+        statusCode: 405,
         body: JSON.stringify({
-          message: "User not found",
+          message: "Method not allowed",
           success: false
         })
       };
     }
-  } else {
+  } catch (error) {
     return {
-      statusCode: 405,
+      statusCode: 500,
       body: JSON.stringify({
-        message: "Method not allowed",
+        message: "Internal server error",
         success: false
       })
     };

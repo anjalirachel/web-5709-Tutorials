@@ -3,7 +3,7 @@
 * *Date Created*: 11 Jul 2024
 * *Last Modification Date*: 11 Jul 2024
 * *Tutorial Repository URL*: <https://git.cs.dal.ca/kurian/csci-5709-tutorials>
-* *Render Deployment Link*: <https://tutorial5-0n3e.onrender.com/>
+* *Netlify Deployment Link*: <https://starlit-heliotrope-ba7260.netlify.app>
 
 
 ## Authors
@@ -21,9 +21,8 @@ See deployment for notes on how to deploy the project on a live system.
 To have a local copy of this tutorial up and running on your local machine, you will first need to install the following software / libraries
 
 ```
-Java Development Kit (jdk)
-Maven
-Intellij
+Node.js
+Visual Studio Code
 Postman
 
 ```
