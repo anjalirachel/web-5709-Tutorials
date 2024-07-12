@@ -2,9 +2,9 @@
   "name": "my-node-app",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "users.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node users.js"
   },
   "author": "",
   "license": "ISC",

@@ -1,6 +1,7 @@
+const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
-const { v4: uuidv4 } = require('uuid'); // Import UUID for unique ID generation
+const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -69,7 +70,11 @@ app.put('/update/:id', (req, res) => {
   }
 });
 
-app.listen(port, () => {
+// Create a basic HTTP server
+const server = http.createServer(app);
+
+// Define the port and start the server
+server.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 
