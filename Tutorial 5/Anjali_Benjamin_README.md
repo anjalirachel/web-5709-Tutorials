@@ -1,16 +1,13 @@
 # Tutorial5
 
-* *Date Created*: 11 Jul 2024
-* *Last Modification Date*: 11 Jul 2024
-* *Tutorial Repository URL*: <hhttps://github.com/anjalirachel/web-5709-Tutorials/tree/main/Tutorial%205>
-* *Netlify Deployment Link*: <https://starlit-heliotrope-ba7260.netlify.app>
-
+- _Date Created_: 11 Jul 2024
+- _Last Modification Date_: 11 Jul 2024
+- _Tutorial Repository URL_: <hhttps://github.com/anjalirachel/web-5709-Tutorials/tree/main/Tutorial%205>
+- _Netlify Deployment Link_: <https://starlit-heliotrope-ba7260.netlify.app>
 
 ## Authors
 
-
-* [Anjali Rachel Benjamin](an653262@dal.ca) - Owner
-
+- [Anjali Rachel Benjamin](an653262@dal.ca)
 
 ## Getting Started
 
@@ -29,7 +26,6 @@ Postman
 
 See the following section for detailed step-by-step instructions on how to install this software / libraries / plug-ins
 
-
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
@@ -42,8 +38,8 @@ npm init -y
 Install Dependencies
 npm install uuid
 
-
 ```
+
 ```
 
 ### Deployment to Netlify
@@ -61,4 +57,5 @@ Brightspace - <https://dal.brightspace.com/d2l/le/content/331913/viewContent/426
 
 ### Built With
 
+[Node.js] (https://nodejs.org/en/learn/getting-started/introduction-to-nodejs)
 [Netlify] (https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/) - The deployment application used
